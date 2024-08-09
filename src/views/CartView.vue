@@ -1,5 +1,4 @@
 <template>
-  <div class="wrapper"></div>
   <AppCartGrid />
 </template>
 

@@ -32,6 +32,6 @@ import AppCart from '@/components/AppCart.vue'
 }
 
 .logo {
-  width: 80px;
+  width: 40px;
 }
 </style>
