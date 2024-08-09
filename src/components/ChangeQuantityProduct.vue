@@ -6,7 +6,7 @@
     <span v-else @click="decrease">
       <img class="quantity__minus" src="@/assets/images/minus.svg" alt="" />
     </span>
-    <p v-if="recheadLimit">Maximum added: {{ counter }}</p>
+    <p v-if="recheadLimit">Limit: {{ counter }}</p>
     <p v-else>{{ counter }}</p>
     <span v-if="!recheadLimit" @click="increase">
       <img class="quantity__plus" src="@/assets/images/plus.svg" alt="" />
@@ -66,6 +66,7 @@ watch(counter, () => {
   width: 100%;
   padding: 5px 15px;
   background: var(--secondary);
+  max-height: 28px;
 
   &__minus,
   &__plus,
@@ -78,6 +79,13 @@ watch(counter, () => {
   &__plus:hover,
   &__trash:hover {
     opacity: 0.5;
+  }
+}
+
+@media (max-width: 768px) {
+  .quantity {
+    padding: 10px 15px;
+    max-height: 38px;
   }
 }
 </style>

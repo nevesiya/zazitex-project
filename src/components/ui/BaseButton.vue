@@ -32,4 +32,10 @@ const emits = defineEmits(['click'])
     background: var(--fourth);
   }
 }
+
+@media (max-width: 768px) {
+  .button {
+    padding: 10px 15px;
+  }
+}
 </style>

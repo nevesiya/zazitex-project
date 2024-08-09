@@ -78,8 +78,10 @@ onMounted(async () => isProdcutInCart())
 .card {
   display: flex;
   flex-direction: column;
+  // flex-grow: 1;
   gap: 5px;
-  width: 250px;
+  // width: 275px;
+  width: calc((100% - (3 * 20px)) / 4);
   padding: 10px 15px;
   border: 1px var(--secondary) solid;
   border-radius: 5px;
@@ -87,10 +89,6 @@ onMounted(async () => isProdcutInCart())
 
   &:hover {
     box-shadow: 5px 5px 20px 1px var(--secondary);
-  }
-
-  &__img {
-    // margin-bottom: 5px;
   }
 
   &__title {
@@ -121,6 +119,30 @@ onMounted(async () => isProdcutInCart())
 
   &__rating-icon {
     width: 16px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .card {
+    width: calc((100% - (3 * 20px)) / 4);
+  }
+}
+
+@media (max-width: 900px) {
+  .card {
+    width: calc((100% - (2 * 20px)) / 3);
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: calc((100% - 20px) / 2);
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    width: calc(100% / 1);
   }
 }
 </style>
