@@ -16,23 +16,25 @@ export const useCartStore = defineStore('cart', {
   },
   actions: {
     addProduct(product, counter) {
-      product.selectedQuantity = counter
-      this.products = this.products.filter((item) => item.id !== product.id)
-      this.products.push(product)
+      const index = this.products.findIndex((item) => item.id === product.id)
+
+      if (index != -1) {
+        this.products[index].selectedQuantity = counter
+      } else {
+        product.selectedQuantity = counter
+        this.products.push(product)
+      }
+
       this.updateStorage()
     },
     deleteProduct(product) {
-      const index = this.products.indexOf(product.id)
+      const index = this.products.findIndex((item) => item.id === product.id)
       this.products.splice(index, 1)
 
       this.updateStorage()
     },
     updateStorage() {
       localStorage.setItem('cart', JSON.stringify(this.products))
-      this.sortedProducts()
-    },
-    sortedProducts() {
-      this.products = [...this.products].sort((a, b) => a.id - b.id)
     }
   }
 })
